@@ -1,0 +1,19 @@
+{
+  "name": "ethkyt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "mmkeys": "tsx metamask_derive_keys.ts"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gts": "^5.3.0",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "@metamask/key-tree": "^9.0.0"
+  }
+}
