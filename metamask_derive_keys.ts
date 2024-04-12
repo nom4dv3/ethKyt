@@ -30,16 +30,17 @@ class MetamaskMasterNode {
   async deriveN(idxlist: number[]): Promise<BIP44Node[]>{
     let childNodes = new Array<BIP44Node>
     for (let i =0;i<list.length; i++){
-      childNodes.push(await this.derive(i))
+      childNodes.push(await this.derive(list[i]))
     }
     return childNodes;
   }
 
   prettyPrint(childNodes: BIP44Node[], needIndex=true, needAddress=true, needPrivateKey=true, delimiter='\t'){
     console.log(`${needIndex?'index'+delimiter:''}${needAddress?delimiter+'address'+delimiter.repeat(5):''}${needPrivateKey?delimiter+'sk':''}`)
-    list.forEach(index => {
-      console.log(`${needIndex?index+delimiter:''}${needAddress?childNodes[index].address+delimiter:''}${needPrivateKey?childNodes[index].privateKey:''}`)
-    });
+    for ( let i = 0; i < list.length; i++){
+      let index = list[i]
+      console.log(`${needIndex?index+delimiter:''}${needAddress?childNodes[i].address+delimiter:''}${needPrivateKey?childNodes[i].privateKey:''}`)
+    }
   }
 
   prettyPrintAddress(childNodes: BIP44Node[]){
@@ -82,9 +83,10 @@ let test_mnemonic = 'romance hurry grit huge rifle ordinary loud toss sound cong
 let mmn = new MetamaskMasterNode()
 await mmn.init(test_mnemonic)
 
-let list = range(0, 6)
+let list = range(2, 100)
+// let list = range(0, 1)
 let nodes = await mmn.deriveN(list)
-// mmn.prettyPrint(nodes, false, false, true)
+// mmn.prettyPrint(nodes, false, true, true, ',')
 // mmn.prettyPrint(nodes)
 // mmn.prettyPrintAddress(nodes)
 mmn.prettyPrintPrivateKey(nodes)
