@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "mmkeys": "tsx metamask_derive_keys.ts"
+    "dkeys": "tsx test/derive_keys.test.ts"
   },
   "type": "module",
   "author": "",
