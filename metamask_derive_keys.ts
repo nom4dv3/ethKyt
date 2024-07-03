@@ -1,6 +1,4 @@
-import { BIP44Node, BIP44PurposeNodeToken } from '@metamask/key-tree';
-//@ts-ignore
-import { getBIP44CoinTypeToAddressPathTuple } from './node_modules/@metamask/key-tree/dist/esm/utils.js'
+import { BIP44Node, BIP44PurposeNodeToken, getBIP44CoinTypeToAddressPathTuple } from '@metamask/key-tree';
 
 export class MetamaskMasterNode {
   rootnode: any = null
